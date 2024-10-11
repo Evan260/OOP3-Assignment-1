@@ -1,3 +1,5 @@
+package shapes;
+
 public abstract class Shape implements Comparable<Shape> {
 	protected double height;
 
