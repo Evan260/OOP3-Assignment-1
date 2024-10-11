@@ -1,10 +1,7 @@
 package appDomain;
 
-public class AppDriver
-{
-
-	public static void main( String[] args )
-	{
+public class AppDriver {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		// refer to demo001 BasicFileIO.java for a simple example on how to
@@ -19,7 +16,5 @@ public class AppDriver
 		// refer to demo02 KittySort.java on how to use a custom sorting
 		// algorithm on a list of comparables to sort using either the
 		// natural order (comparable) or other orders (comparators)
-
 	}
-
 }
