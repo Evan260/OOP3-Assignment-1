@@ -1,7 +1,6 @@
 package shapes;
 
-public class TriangularPrism extends Shape 
-{
+public class TriangularPrism extends Prism {
 	// Properties
 	private double triangleBase;
 	private double triangleHeight;
@@ -12,7 +11,7 @@ public class TriangularPrism extends Shape
 		this.triangleBase = triangleBase;
 		this.triangleHeight = triangleHeight;
 	}
-	
+
 	// Getters and setters
 	public double getBase() {
 		return triangleBase;
@@ -21,7 +20,7 @@ public class TriangularPrism extends Shape
 	public void setBase(double triangleBase) {
 		this.triangleBase = triangleBase;
 	}
-	
+
 	public double getHeight() {
 		return triangleHeight;
 	}
@@ -29,11 +28,11 @@ public class TriangularPrism extends Shape
 	public void seteight(double triangleHeight) {
 		this.triangleHeight = triangleHeight;
 	}
-	
+
 	// Methods
 	@Override
 	public double calcVolume() {
-		return calcBaseArea() * height;
+		return calcBaseArea() * getHeight();
 	}
 
 	@Override

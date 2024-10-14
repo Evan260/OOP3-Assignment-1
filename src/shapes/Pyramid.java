@@ -1,7 +1,6 @@
 package shapes;
 
-public class Pyramid extends Shape
-{
+public class Pyramid extends Shape {
 	// Properties
 	private double side;
 
@@ -19,7 +18,7 @@ public class Pyramid extends Shape
 	public void setSide(double side) {
 		this.side = side;
 	}
-	
+
 	// Methods
 	@Override
 	public double calcBaseArea() {
@@ -28,6 +27,6 @@ public class Pyramid extends Shape
 
 	@Override
 	public double calcVolume() {
-		return 1/3 * Math.pow(side, 2) * getHeight();
+		return 1 / 3 * Math.pow(side, 2) * getHeight();
 	}
 }

@@ -1,7 +1,6 @@
 package shapes;
 
-public class OctagonalPrism extends Shape
-{
+public class OctagonalPrism extends Prism {
 	// Properties
 	private double side;
 
@@ -15,7 +14,7 @@ public class OctagonalPrism extends Shape
 	public double getSide() {
 		return side;
 	}
-	
+
 	public void setSide(double side) {
 		this.side = side;
 	}
@@ -23,7 +22,7 @@ public class OctagonalPrism extends Shape
 	// Methods
 	@Override
 	public double calcVolume() {
-		return calcBaseArea() * height;
+		return calcBaseArea() * getHeight();
 	}
 
 	@Override

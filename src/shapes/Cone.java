@@ -1,7 +1,6 @@
 package shapes;
 
-public class Cone extends Shape 
-{
+public class Cone extends Shape {
 	// Properties
 	private double radius;
 
@@ -10,12 +9,12 @@ public class Cone extends Shape
 		super(height);
 		this.radius = radius;
 	}
-	
+
 	// Getters and setters
 	public double getRadius() {
 		return radius;
 	}
-	
+
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}

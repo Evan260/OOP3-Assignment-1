@@ -1,7 +1,6 @@
 package shapes;
 
-public class PentagonalPrism extends Shape
-{
+public class PentagonalPrism extends Prism {
 	// Properties
 	private double side;
 

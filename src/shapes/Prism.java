@@ -1,62 +1,47 @@
 package shapes;
 
-public abstract class Prism implements Comparable<Prism>{
-	
+public abstract class Prism implements Comparable<Prism> {
+	// Properties
 	private double side;
 	private double height;
 
-	/**
-	 * @param side
-	 */
+	// Init.
 	public Prism(double side) {
 		super();
 		this.side = side;
 	}
 
-	/**
-	 * @return the side
-	 */
+	// Getters and setters
 	public double getSide() {
 		return side;
 	}
 
-	/**
-	 * @param side the side to set
-	 */
 	public void setSide(double side) {
 		this.side = side;
 	}
-	
-	/**
-	 * @return the height
-	 */
+
 	public double getHeight() {
 		return height;
 	}
 
-	/**
-	 * @param height the height to set
-	 */
 	public void setHeight(double height) {
 		this.height = height;
 	}
-	
-	
+
+	// Methods
 	public int compareTo(Prism other) {
 		if (this.height > other.height) {
 			return 1;
-		} if (this.height < other.height) {
+		}
+		if (this.height < other.height) {
 			return -1;
 		} else {
 			return 0;
 		}
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+
 	public abstract double calcBaseArea();
+
 	public abstract double calcVolume();
 
 	@Override
@@ -64,6 +49,4 @@ public abstract class Prism implements Comparable<Prism>{
 		return "Prism [getHeight()=" + getHeight() + ", calcBaseArea()=" + calcBaseArea() + ", calcVolume()="
 				+ calcVolume() + "]";
 	}
-	
-	
 }

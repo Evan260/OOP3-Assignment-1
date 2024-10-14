@@ -1,7 +1,6 @@
 package shapes;
 
-public class SquarePrism extends Shape 
-{
+public class SquarePrism extends Prism {
 	// Properties
 	private double side;
 
@@ -23,7 +22,7 @@ public class SquarePrism extends Shape
 	// Methods
 	@Override
 	public double calcVolume() {
-		return calcBaseArea() * height;
+		return calcBaseArea() * getHeight();
 	}
 
 	@Override
