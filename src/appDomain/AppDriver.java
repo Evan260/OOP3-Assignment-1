@@ -1,20 +1,51 @@
-package appDomain;
+import shapes.*;
+
+import java.util.Comparator;
 
 public class AppDriver {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		// refer to demo001 BasicFileIO.java for a simple example on how to
-		// read data from a text file
+    public static void main(String[] args) {
+        // Define an array with various shapes, including all shapes listed in the project folder
+        Shape[] shapes = {
+            new Cylinder(10, 4),
+            new Cone(7, 3),
+            new SquarePrism(5, 6),
+            new TriangularPrism(8, 5, 3),
+            new OctagonalPrism(9, 4),   
+            new PentagonalPrism(6, 7),  
+            new Pyramid(10, 5)          
+        };
 
-		// refer to demo01 Test.java for an example on how to parse command
-		// line arguments and benchmarking tests
+        // Comparator for volume
+        Comparator<Shape> volumeComparator = new Comparator<Shape>() {
+            @Override
+            public int compare(Shape s1, Shape s2) {
+                return Double.compare(s1.calcVolume(), s2.calcVolume());
+            }
+        };
 
-		// refer to demo02 Student.java for comparable implementation, and
-		// NameCompare.java or GradeCompare for comparator implementations
+        // Sort shapes by volume using bubble sort
+        bubbleSort(shapes, volumeComparator);
 
-		// refer to demo02 KittySort.java on how to use a custom sorting
-		// algorithm on a list of comparables to sort using either the
-		// natural order (comparable) or other orders (comparators)
-	}
+        // Display sorted shapes
+        for (Shape shape : shapes) {
+            System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
+        }
+    }
+
+    // Bubble sort algorithm using Comparator
+    public static void bubbleSort(Shape[] shapes, Comparator<Shape> comparator) {
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < shapes.length - 1; i++) {
+                if (comparator.compare(shapes[i], shapes[i + 1]) > 0) {
+                    Shape temp = shapes[i];
+                    shapes[i] = shapes[i + 1];
+                    shapes[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+    }
 }
