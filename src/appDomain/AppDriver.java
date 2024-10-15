@@ -16,14 +16,6 @@ public class AppDriver {
             new Pyramid(10, 5)          
         };
 
-        // Comparator for volume
-        Comparator<Shape> volumeComparator = new Comparator<Shape>() {
-            @Override
-            public int compare(Shape s1, Shape s2) {
-                return Double.compare(s1.calcVolume(), s2.calcVolume());
-            }
-        };
-
         // Sort shapes by volume using bubble sort
         bubbleSort(shapes, volumeComparator);
 
