@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class AppDriver {
 
 	public static void main(String[] args) {
+		Instant start = Instant.now();
+
 		String[] fileNames = { "res/shapes1.txt", "res/shapes2.txt", "res/shapes3.txt" };
 
 		try {
@@ -25,15 +27,25 @@ public class AppDriver {
 
 			// Print the number of shapes loaded
 			System.out.println("DONE: Number of shapes loaded: " + allShapes.size());
-
+			Instant finish1 = Instant.now();
+			long timeElapsed = Duration.between(start, finish1).toMillis();
+			System.out.println("Time taken to load: " + timeElapsed + "ms");
+			
 			// Convert the List to an array for sorting
 			Shape[] shapesArray = allShapes.toArray(new Shape[0]);
-
+			Instant finish2 = Instant.now();
+			long timeElapsed2 = Duration.between(finish1, finish2).toMillis();
+			System.out.println("Time taken to load: " + timeElapsed2);
 			// Comparator to compare shapes by volume
 			Comparator<Shape> volumeComparator = new VolumeCompare();
-
+			Instant finish3 = Instant.now();
+			long timeElapsed3 = Duration.between(finish2, finish3).toMillis();
+			System.out.println("Time taken to load: " + timeElapsed3);
 			// Sort shapes by volume using bubble sort
 			bubbleSort(shapesArray, volumeComparator);
+			Instant finish4 = Instant.now();
+			long timeElapsed4 = Duration.between(finish3, finish4).toMillis();
+			System.out.println("Time taken to load: " + timeElapsed4);
 
 			// Display sorted shapes by volume
 			for (Shape shape : shapesArray) {
