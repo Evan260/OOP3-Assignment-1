@@ -1,15 +1,11 @@
 package appDomain;
 
-import java.awt.Shape;
+import shapes.Shape;
 import java.util.Comparator;
 
-public abstract class BaseAreaCompare implements Comparator<Shape>{
-		
-       Comparator<Shape> volumeComparator = new Comparator<Shape>() {
-           @Override
-           public int compare(Shape s1, Shape s2) {
-               return Double.compare(s1.calcVolume(), s2.calcVolume());
-            }
-	    };
-	}
-
+public class BaseAreaCompare implements Comparator<Shape> {
+    @Override
+    public int compare(Shape s1, Shape s2) {
+        return Double.compare(s1.calcBaseArea(), s2.calcBaseArea());
+    }
+}

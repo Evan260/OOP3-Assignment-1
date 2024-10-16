@@ -1,6 +1,6 @@
 package shapes;
 
-public class PentagonalPrism extends Prism {
+public class PentagonalPrism extends Shape {
 	// Properties
 	private double side;
 
@@ -22,11 +22,11 @@ public class PentagonalPrism extends Prism {
 	// Methods
 	@Override
 	public double calcBaseArea() {
-		return ((Math.sqrt(3) / 4) * Math.pow(side, 2));
+		 return (5 * Math.pow(side, 2) * Math.tan(Math.toRadians(54))) / 4;
 	}
 
 	@Override
 	public double calcVolume() {
-		return (calcBaseArea() * getHeight());
+		return calcBaseArea() * getHeight();
 	}
 }

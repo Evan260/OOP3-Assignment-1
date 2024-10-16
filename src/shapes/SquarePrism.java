@@ -1,6 +1,6 @@
 package shapes;
 
-public class SquarePrism extends Prism {
+public class SquarePrism extends Shape {
 	// Properties
 	private double side;
 

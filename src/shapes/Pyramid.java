@@ -27,6 +27,6 @@ public class Pyramid extends Shape {
 
 	@Override
 	public double calcVolume() {
-		return 1 / 3 * Math.pow(side, 2) * getHeight();
+		return 1 / 3 * calcBaseArea() * getHeight();
 	}
 }

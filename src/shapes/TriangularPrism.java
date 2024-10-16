@@ -1,32 +1,22 @@
 package shapes;
 
-public class TriangularPrism extends Prism {
+public class TriangularPrism extends Shape {
 	// Properties
-	private double triangleBase;
-	private double triangleHeight;
+	private double side; // The side length of the equilateral triangle
 
 	// Init.
-	public TriangularPrism(double height, double triangleBase, double triangleHeight) {
+	public TriangularPrism(double height, double side) {
 		super(height);
-		this.triangleBase = triangleBase;
-		this.triangleHeight = triangleHeight;
+		this.side = side;
 	}
 
 	// Getters and setters
-	public double getBase() {
-		return triangleBase;
+	public double getSide() {
+		return side;
 	}
 
-	public void setBase(double triangleBase) {
-		this.triangleBase = triangleBase;
-	}
-
-	public double getHeight() {
-		return triangleHeight;
-	}
-
-	public void seteight(double triangleHeight) {
-		this.triangleHeight = triangleHeight;
+	public void setSide(double side) {
+		this.side = side;
 	}
 
 	// Methods
@@ -37,6 +27,6 @@ public class TriangularPrism extends Prism {
 
 	@Override
 	public double calcBaseArea() {
-		return 0.5 * triangleBase * triangleHeight;
+		return (Math.pow(side, 2) * Math.sqrt(3)) / 4;
 	}
 }

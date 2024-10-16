@@ -1,6 +1,6 @@
 package shapes;
 
-public class OctagonalPrism extends Prism {
+public class OctagonalPrism extends Shape {
 	// Properties
 	private double side;
 
