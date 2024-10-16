@@ -15,13 +15,17 @@ public class AppDriver {
 			// Collect all shapes from the files
 			List<Shape> allShapes = new ArrayList<>();
 			for (String fileName : fileNames) {
+				
+				// Print the filepath
+				System.out.println("Loading shapes from file: " + fileName);
+				
 				List<Shape> shapesFromFile = ShapeFileReader.loadShapesFromFile(fileName);
 				allShapes.addAll(shapesFromFile);
 			}
-			
-		     // Print the number of shapes loaded
-           System.out.println("DONE: Number of shapes loaded: " + allShapes.size());
-            
+
+			// Print the number of shapes loaded
+			System.out.println("DONE: Number of shapes loaded: " + allShapes.size());
+
 			// Convert the List to an array for sorting
 			Shape[] shapesArray = allShapes.toArray(new Shape[0]);
 
