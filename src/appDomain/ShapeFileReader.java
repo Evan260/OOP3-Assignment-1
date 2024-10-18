@@ -8,21 +8,6 @@ import java.util.List;
 import shapes.*;
 
 public class ShapeFileReader {
-	public static void main(String[] args) {
-		String fileName = "shapes.txt";
-		
-		try {
-			List<Shape> shapes = loadShapesFromFile(fileName);
-			
-			// Iterate over the list and print each shape
-			for (Shape shape : shapes) {
-				System.out.println(shape);
-			}
-		} catch (IOException e) {
-			System.err.println("Error reading shapes file: " + e.getMessage());
-		}
-	}
-
 	// Method to load shapes from a file and return them as a List of Shape objects
 	public static List<Shape> loadShapesFromFile(String fileName) throws IOException {
 		List<Shape> shapes = new ArrayList<>();
