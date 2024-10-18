@@ -70,7 +70,7 @@ public class AppDriver {
 
             if (args[typeIndex].substring(2).equals("v")) {
             	Comparator<Shape> volumeComparator = new VolumeCompare();
-                if (args[2].substring(2).equals("b")) {
+                if (args[sortIndex].substring(2).equals("b")) {
     				// Sort shapes by volume using bubble sort
                 	Instant insertionStart = Instant.now();
                     bubbleSort(shapesArray);
@@ -78,7 +78,7 @@ public class AppDriver {
                     Instant insertionEnd = Instant.now();
                     long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
                     System.out.println("Time taken to sort using Bubble Sort: " + insertionTime + "ms");
-                } else if(args[2].substring(2).equals("s")) {
+                } else if(args[sortIndex].substring(2).equals("s")) {
                     // Sort shapes by volume using Selection Sort
                     Instant selectionStart = Instant.now();
                     selectionSort(shapesArray, volumeComparator);
@@ -86,7 +86,7 @@ public class AppDriver {
                     Instant selectionEnd = Instant.now();
                     long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
                     System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
-                } else if (args[2].substring(2).equals("i")) {
+                } else if (args[sortIndex].substring(2).equals("i")) {
 
                     // Sort shapes by volume using Insertion Sort
                     Instant insertionStart = Instant.now();
@@ -96,7 +96,7 @@ public class AppDriver {
                     long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
                     System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
 
-                } else if (args[2].substring(2).equals("q")) {
+                } else if (args[sortIndex].substring(2).equals("q")) {
                     // Sort shapes by volume using Quick Sort
                     Instant quickStart = Instant.now();
                     quickSort(shapesArray, volumeComparator);
@@ -109,7 +109,7 @@ public class AppDriver {
                 
             } else if (args[typeIndex].substring(2).equals("a")) {
             	Comparator<Shape> baseAreaCompare = new BaseAreaCompare();
-                if (args[2].substring(2).equals("b")) {
+                if (args[sortIndex].substring(2).equals("b")) {
 					// Sort shapes by volume using bubble sort
                 	Instant insertionStart = Instant.now();
                     bubbleSort(shapesArray);
@@ -117,7 +117,7 @@ public class AppDriver {
                     Instant insertionEnd = Instant.now();
                     long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
                     System.out.println("Time taken to sort using Bubble Sort: " + insertionTime + "ms");
-                } else if(args[2].substring(2).equals("s")) {
+                } else if(args[sortIndex].substring(2).equals("s")) {
                     // Sort shapes by volume using Selection Sort
                     Instant selectionStart = Instant.now();
                     selectionSort(shapesArray, baseAreaCompare);
@@ -125,7 +125,7 @@ public class AppDriver {
                     Instant selectionEnd = Instant.now();
                     long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
                     System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
-                } else if (args[2].substring(2).equals("i")) {
+                } else if (args[sortIndex].substring(2).equals("i")) {
 
                     // Sort shapes by volume using Insertion Sort
                     Instant insertionStart = Instant.now();
@@ -135,7 +135,7 @@ public class AppDriver {
                     long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
                     System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
 
-                } else if (args[2].substring(2).equals("q")) {
+                } else if (args[sortIndex].substring(2).equals("q")) {
                     // Sort shapes by volume using Quick Sort
                     Instant quickStart = Instant.now();
                     quickSort(shapesArray, baseAreaCompare);
@@ -147,7 +147,7 @@ public class AppDriver {
             	
             	
             } else if (args[typeIndex].substring(2).equals("h")) {
-                if (args[2].substring(2).equals("b")) {
+                if (args[sortIndex].substring(2).equals("b")) {
     				// Sort shapes by volume using bubble sort
                 	Instant insertionStart = Instant.now();
                     bubbleSort(shapesArray);
@@ -155,7 +155,7 @@ public class AppDriver {
                     Instant insertionEnd = Instant.now();
                     long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
                     System.out.println("Time taken to sort using Bubble Sort: " + insertionTime + "ms");
-                } else if(args[2].substring(2).equals("s")) {
+                } else if(args[sortIndex].substring(2).equals("s")) {
                     // Sort shapes by volume using Selection Sort
                     Instant selectionStart = Instant.now();
                     selectionSort(shapesArray);
@@ -163,7 +163,7 @@ public class AppDriver {
                     Instant selectionEnd = Instant.now();
                     long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
                     System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
-                } else if (args[2].substring(2).equals("i")) {
+                } else if (args[sortIndex].substring(2).equals("i")) {
 
                     // Sort shapes by volume using Insertion Sort
                     Instant insertionStart = Instant.now();
@@ -173,7 +173,7 @@ public class AppDriver {
                     long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
                     System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
 
-                } else if (args[2].substring(2).equals("q")) {
+                } else if (args[sortIndex].substring(2).equals("q")) {
                     // Sort shapes by volume using Quick Sort
                     Instant quickStart = Instant.now();
                     quickSort(shapesArray);
