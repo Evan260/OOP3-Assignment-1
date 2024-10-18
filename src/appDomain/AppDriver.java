@@ -47,15 +47,16 @@ public class AppDriver {
 
             // Sort shapes by volume using bubble sort
             bubbleSort(shapesArray, volumeComparator);
+            Display(shapesArray);
             Instant finish4 = Instant.now();
             long timeElapsed4 = Duration.between(finish3, finish4).toMillis();
             System.out.println("Time taken to sort using Bubble Sort: " + timeElapsed4 + "ms");
 
-            // Display sorted shapes by volume
-            System.out.println("\nShapes sorted by volume using Bubble Sort:");
-            for (Shape shape : shapesArray) {
-                System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
-            }
+            // // Display sorted shapes by volume
+            // System.out.println("\nShapes sorted by volume using Bubble Sort:");
+            // for (Shape shape : shapesArray) {
+            //     System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
+            // }
 
             // Reset the array to unsorted state
             shapesArray = allShapes.toArray(new Shape[0]);
@@ -63,15 +64,10 @@ public class AppDriver {
             // Sort shapes by volume using Selection Sort
             Instant selectionStart = Instant.now();
             selectionSort(shapesArray, volumeComparator);
+            Display(shapesArray);
             Instant selectionEnd = Instant.now();
             long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
             System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
-
-            // Display sorted shapes by volume
-            System.out.println("\nShapes sorted by volume using Selection Sort:");
-            for (Shape shape : shapesArray) {
-                System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
-            }
 
             // Reset the array to unsorted state
             shapesArray = allShapes.toArray(new Shape[0]);
@@ -79,15 +75,10 @@ public class AppDriver {
             // Sort shapes by volume using Insertion Sort
             Instant insertionStart = Instant.now();
             insertionSort(shapesArray, volumeComparator);
+            Display(shapesArray);
             Instant insertionEnd = Instant.now();
             long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
             System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
-
-            // Display sorted shapes by volume
-            System.out.println("\nShapes sorted by volume using Insertion Sort:");
-            for (Shape shape : shapesArray) {
-                System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
-            }
 
             // Reset the array to unsorted state
             shapesArray = allShapes.toArray(new Shape[0]);
@@ -95,15 +86,10 @@ public class AppDriver {
             // Sort shapes by volume using Quick Sort
             Instant quickStart = Instant.now();
             quickSort(shapesArray, volumeComparator);
+            Display(shapesArray);
             Instant quickEnd = Instant.now();
             long quickTime = Duration.between(quickStart, quickEnd).toMillis();
             System.out.println("\nTime taken to sort using Quick Sort: " + quickTime + "ms");
-
-            // Display sorted shapes by volume
-            System.out.println("\nShapes sorted by volume using Quick Sort:");
-            for (Shape shape : shapesArray) {
-                System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
-            }
 
         } catch (IOException e) {
             System.err.println("Error reading shapes file: " + e.getMessage());
@@ -189,4 +175,19 @@ public class AppDriver {
 
         return i + 1;
     }
+
+    	public static void Display(Shape[] shape) {
+		//first
+		System.out.println("First Element is: " + shape[0].getClass().getSimpleName() + " Volume");	
+		//every 1000th
+		for(int i = 0; i < shape.length; i+=1000) {
+			System.out.println(i + "th element is: " + shape[i].getClass().getSimpleName() + " Volume");	
+		}
+		//second last
+		System.out.println("Second last element is: " + shape[shape.length-2].getClass().getSimpleName() + " Volume");
+		//last
+		System.out.println("Second last element is: " + shape[shape.length-1].getClass().getSimpleName() + " Volume");
+
+		
+	}
 }
