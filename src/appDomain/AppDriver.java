@@ -12,8 +12,36 @@ public class AppDriver {
 
     public static void main(String[] args) {
         Instant start = Instant.now();
-
-        String[] fileNames = { "res/shapes1.txt", "res/shapes2.txt", "res/shapes3.txt" };
+        
+        String[] argsList = args;
+        String valueToFindP = "-f";
+        String valueToFindT = "-t";
+        String valueToFindS = "-s";
+        int PathIndex = 1;
+        int typeIndex = 1;
+        int sortIndex = 1;
+        //checking the args for shape to set the path
+        for (int i = 0; i < argsList.length; i++) {
+        	if(argsList[i].contains(valueToFindP)) {
+        		PathIndex = i;
+        		break;
+        	}
+        }
+        //find the 
+        for (int i = 0; i < argsList.length; i++) {
+        	if(argsList[i].contains(valueToFindT)) {
+        		typeIndex = i;
+        		break;
+        	}
+        }
+        //find the sorting method
+        for (int i = 0; i < argsList.length; i++) {
+        	if(argsList[i].contains(valueToFindS)) {
+        		sortIndex = i;
+        		break;
+        	}
+        }
+        String[] fileNames = {args[PathIndex].substring(2)};
 
         try {
             // Collect all shapes from the files
@@ -38,52 +66,130 @@ public class AppDriver {
             Instant finish2 = Instant.now();
             long timeElapsed2 = Duration.between(finish1, finish2).toMillis();
             System.out.println("Time taken to convert list to array: " + timeElapsed2 + "ms");
+        	
 
-            // Comparator to compare shapes by volume
-            Comparator<Shape> volumeComparator = new VolumeCompare();
+            if (args[typeIndex].substring(2).equals("v")) {
+            	Comparator<Shape> volumeComparator = new VolumeCompare();
+                if (args[2].substring(2).equals("b")) {
+    				// Sort shapes by volume using bubble sort
+                	Instant insertionStart = Instant.now();
+                    bubbleSort(shapesArray);
+                    Display(shapesArray);
+                    Instant insertionEnd = Instant.now();
+                    long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
+                    System.out.println("Time taken to sort using Bubble Sort: " + insertionTime + "ms");
+                } else if(args[2].substring(2).equals("s")) {
+                    // Sort shapes by volume using Selection Sort
+                    Instant selectionStart = Instant.now();
+                    selectionSort(shapesArray, volumeComparator);
+                    Display(shapesArray);
+                    Instant selectionEnd = Instant.now();
+                    long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
+                } else if (args[2].substring(2).equals("i")) {
+
+                    // Sort shapes by volume using Insertion Sort
+                    Instant insertionStart = Instant.now();
+                    insertionSort(shapesArray, volumeComparator);
+                    Display(shapesArray);
+                    Instant insertionEnd = Instant.now();
+                    long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
+
+                } else if (args[2].substring(2).equals("q")) {
+                    // Sort shapes by volume using Quick Sort
+                    Instant quickStart = Instant.now();
+                    quickSort(shapesArray, volumeComparator);
+                    Display(shapesArray);
+                    Instant quickEnd = Instant.now();
+                    long quickTime = Duration.between(quickStart, quickEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Quick Sort: " + quickTime + "ms");
+                }
+                
+                
+            } else if (args[typeIndex].substring(2).equals("a")) {
+            	Comparator<Shape> baseAreaCompare = new BaseAreaCompare();
+                if (args[2].substring(2).equals("b")) {
+					// Sort shapes by volume using bubble sort
+                	Instant insertionStart = Instant.now();
+                    bubbleSort(shapesArray);
+                    Display(shapesArray);
+                    Instant insertionEnd = Instant.now();
+                    long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
+                    System.out.println("Time taken to sort using Bubble Sort: " + insertionTime + "ms");
+                } else if(args[2].substring(2).equals("s")) {
+                    // Sort shapes by volume using Selection Sort
+                    Instant selectionStart = Instant.now();
+                    selectionSort(shapesArray, baseAreaCompare);
+                    Display(shapesArray);
+                    Instant selectionEnd = Instant.now();
+                    long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
+                } else if (args[2].substring(2).equals("i")) {
+
+                    // Sort shapes by volume using Insertion Sort
+                    Instant insertionStart = Instant.now();
+                    insertionSort(shapesArray, baseAreaCompare);
+                    Display(shapesArray);
+                    Instant insertionEnd = Instant.now();
+                    long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
+
+                } else if (args[2].substring(2).equals("q")) {
+                    // Sort shapes by volume using Quick Sort
+                    Instant quickStart = Instant.now();
+                    quickSort(shapesArray, baseAreaCompare);
+                    Display(shapesArray);
+                    Instant quickEnd = Instant.now();
+                    long quickTime = Duration.between(quickStart, quickEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Quick Sort: " + quickTime + "ms");
+                }
+            	
+            	
+            } else if (args[typeIndex].substring(2).equals("h")) {
+                if (args[2].substring(2).equals("b")) {
+    				// Sort shapes by volume using bubble sort
+                	Instant insertionStart = Instant.now();
+                    bubbleSort(shapesArray);
+                    Display(shapesArray);
+                    Instant insertionEnd = Instant.now();
+                    long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
+                    System.out.println("Time taken to sort using Bubble Sort: " + insertionTime + "ms");
+                } else if(args[2].substring(2).equals("s")) {
+                    // Sort shapes by volume using Selection Sort
+                    Instant selectionStart = Instant.now();
+                    selectionSort(shapesArray);
+                    Display(shapesArray);
+                    Instant selectionEnd = Instant.now();
+                    long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
+                } else if (args[2].substring(2).equals("i")) {
+
+                    // Sort shapes by volume using Insertion Sort
+                    Instant insertionStart = Instant.now();
+                    insertionSort(shapesArray);
+                    Display(shapesArray);
+                    Instant insertionEnd = Instant.now();
+                    long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
+
+                } else if (args[2].substring(2).equals("q")) {
+                    // Sort shapes by volume using Quick Sort
+                    Instant quickStart = Instant.now();
+                    quickSort(shapesArray);
+                    Display(shapesArray);
+                    Instant quickEnd = Instant.now();
+                    long quickTime = Duration.between(quickStart, quickEnd).toMillis();
+                    System.out.println("\nTime taken to sort using Quick Sort: " + quickTime + "ms");
+                }
+            }
+            
+            Comparator<Shape> baseAreaCompare = new BaseAreaCompare();
             Instant finish3 = Instant.now();
-            long timeElapsed3 = Duration.between(finish2, finish3).toMillis();
-            System.out.println("Time taken to create comparator: " + timeElapsed3 + "ms");
+            
 
-            // Sort shapes by volume using bubble sort
-            bubbleSort(shapesArray, volumeComparator);
-            Display(shapesArray);
-            Instant finish4 = Instant.now();
-            long timeElapsed4 = Duration.between(finish3, finish4).toMillis();
-            System.out.println("Time taken to sort using Bubble Sort: " + timeElapsed4 + "ms");
 
-            // Reset the array to unsorted state
-            shapesArray = allShapes.toArray(new Shape[0]);
 
-            // Sort shapes by volume using Selection Sort
-            Instant selectionStart = Instant.now();
-            selectionSort(shapesArray, volumeComparator);
-            Display(shapesArray);
-            Instant selectionEnd = Instant.now();
-            long selectionTime = Duration.between(selectionStart, selectionEnd).toMillis();
-            System.out.println("\nTime taken to sort using Selection Sort: " + selectionTime + "ms");
-
-            // Reset the array to unsorted state
-            shapesArray = allShapes.toArray(new Shape[0]);
-
-            // Sort shapes by volume using Insertion Sort
-            Instant insertionStart = Instant.now();
-            insertionSort(shapesArray, volumeComparator);
-            Display(shapesArray);
-            Instant insertionEnd = Instant.now();
-            long insertionTime = Duration.between(insertionStart, insertionEnd).toMillis();
-            System.out.println("\nTime taken to sort using Insertion Sort: " + insertionTime + "ms");
-
-            // Reset the array to unsorted state
-            shapesArray = allShapes.toArray(new Shape[0]);
-
-            // Sort shapes by volume using Quick Sort
-            Instant quickStart = Instant.now();
-            quickSort(shapesArray, volumeComparator);
-            Display(shapesArray);
-            Instant quickEnd = Instant.now();
-            long quickTime = Duration.between(quickStart, quickEnd).toMillis();
-            System.out.println("\nTime taken to sort using Quick Sort: " + quickTime + "ms");
 
         } catch (IOException e) {
             System.err.println("Error reading shapes file: " + e.getMessage());
@@ -98,6 +204,21 @@ public class AppDriver {
             for (int i = 0; i < shapes.length - 1; i++) {
                 if (comparator.compare(shapes[i], shapes[i + 1]) > 0) {
                     Shape temp = shapes[i];
+                    shapes[i] = shapes[i + 1];
+                    shapes[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+    }
+    //sorting when height
+    public static void bubbleSort(Comparable[] shapes) {
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < shapes.length - 1; i++) {
+                if (shapes[i].compareTo(shapes[i + 1] )> 0) {
+                    Comparable temp = shapes[i];
                     shapes[i] = shapes[i + 1];
                     shapes[i + 1] = temp;
                     swapped = true;
@@ -121,6 +242,22 @@ public class AppDriver {
             shapes[i] = temp;
         }
     }
+    //sorting when height
+    public static void selectionSort(Comparable[] shapes) {
+        int n = shapes.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (shapes[i].compareTo(shapes[j]) < 0) {
+                    minIdx = j;
+                }
+            }
+            Comparable temp = shapes[minIdx];
+            shapes[minIdx] = shapes[i];
+            shapes[i] = temp;
+        }
+    }
+
 
     // Insertion sort algorithm using Comparator
     public static void insertionSort(Shape[] shapes, Comparator<Shape> comparator) {
@@ -136,11 +273,26 @@ public class AppDriver {
             shapes[j + 1] = key;
         }
     }
+    //sorting when height
+    public static void insertionSort(Comparable[] shapes) {
+        int n = shapes.length;
+        for (int i = 1; i < n; ++i) {
+            Comparable key = shapes[i];
+            int j = i - 1;
+
+            while (j >= 0 && shapes[j].compareTo(key) > 0) {
+                shapes[j + 1] = shapes[j];
+                j = j - 1;
+            }
+            shapes[j + 1] = key;
+        }
+    }
 
     // Quick sort algorithm using Comparator
     public static void quickSort(Shape[] shapes, Comparator<Shape> comparator) {
         quickSortHelper(shapes, 0, shapes.length - 1, comparator);
     }
+    
 
     private static void quickSortHelper(Shape[] shapes, int low, int high, Comparator<Shape> comparator) {
         if (low < high) {
@@ -168,6 +320,40 @@ public class AppDriver {
         shapes[high] = temp;
 
         return i + 1;
+    }
+    
+    //for sorting when height is involved
+    
+    public static void quickSort(Comparable[] shapes) {
+        quickSortHelper(shapes, 0, shapes.length - 1);
+    }
+
+    private static void quickSortHelper(Comparable[] shapes, int low, int high) {
+        if (low < high) {
+            int pi = partition(shapes, low, high);
+            quickSortHelper(shapes, low, pi - 1);
+            quickSortHelper(shapes, pi + 1, high);
+        }
+    }
+
+    private static int partition(Comparable[] shapes, int low, int high) {
+        Comparable pivot = shapes[high];
+        int i = (low - 1);
+
+        for (int j = low; j < high; j++) {
+            if (shapes[j].compareTo(pivot) <= 0) {
+                i++;
+                swap(shapes, i, j);
+            }
+        }
+        swap(shapes, i + 1, high);
+        return i + 1;
+    }
+
+    private static void swap(Comparable[] shapes, int i, int j) {
+        Comparable temp = shapes[i];
+        shapes[i] = shapes[j];
+        shapes[j] = temp;
     }
 
 	    	public static void Display(Shape[] shapes) {
