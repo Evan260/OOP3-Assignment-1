@@ -31,7 +31,12 @@ public class AppDriver {
 			Shape[] shapesArray = allShapes.toArray(new Shape[0]);
 
 			Comparator<Shape> comparator = getComparator(sortType);
-			sortShapes(shapesArray, comparator, sortMethod);
+			if (comparator == null) {
+				sortShapes(shapesArray, sortMethod);
+			} else {
+				sortShapes(shapesArray, comparator, sortMethod);
+			}
+
 
 			Display(shapesArray);
 
@@ -59,6 +64,7 @@ public class AppDriver {
 			return new BaseAreaCompare();
 		default:
 			return null;
+
 		}
 	}
 
@@ -78,7 +84,25 @@ public class AppDriver {
 		case "q":
 			quickSort(shapes, comparator);
 			break;
-		}
+		} 
+		logTime(method + " sort", start);
+	}
+	private static void sortShapes(Shape[] shapes, String method) {
+		Instant start = Instant.now();
+		switch (method) {
+		case "b":
+			bubbleSort(shapes);
+			break;
+		case "s":
+			selectionSort(shapes);
+			break;
+		case "i":
+			insertionSort(shapes);
+			break;
+		case "q":
+			quickSort(shapes);
+			break;
+		} 
 		logTime(method + " sort", start);
 	}
 
@@ -173,6 +197,7 @@ public class AppDriver {
 		shapes[i] = shapes[j];
 		shapes[j] = temp;
 	}
+
 	//sorts for height
     public static void bubbleSort(Comparable[] shapes) {
         boolean swapped;
