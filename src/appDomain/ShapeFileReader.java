@@ -10,9 +10,11 @@ import shapes.*;
 public class ShapeFileReader {
 	public static void main(String[] args) {
 		String fileName = "shapes.txt";
+		
 		try {
 			List<Shape> shapes = loadShapesFromFile(fileName);
 			
+			// Iterate over the list and print each shape
 			for (Shape shape : shapes) {
 				System.out.println(shape);
 			}
@@ -21,15 +23,18 @@ public class ShapeFileReader {
 		}
 	}
 
-	// Method to load shapes from a file
+	// Method to load shapes from a file and return them as a List of Shape objects
 	public static List<Shape> loadShapesFromFile(String fileName) throws IOException {
 		List<Shape> shapes = new ArrayList<>();
+		
+		// Use BufferedReader to read the file line by line
 		try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
 			// Skip the first line because it's not a shape
             reader.readLine();
             
 			String line;
 			while ((line = reader.readLine()) != null) {
+				// Split the line into tokens (shape type and dimensions)
 				String[] tokens = line.split(" ");
 
 				// Skip lines that don't have the required number of tokens
@@ -38,6 +43,7 @@ public class ShapeFileReader {
 					continue;
 				}
 
+				// Create a Shape object from the tokens and add it to the list
 				Shape shape = createShapeFromTokens(tokens);
 				if (shape != null) {
 					shapes.add(shape);
@@ -50,10 +56,12 @@ public class ShapeFileReader {
 	// Helper method to create shape instances from file tokens
 	private static Shape createShapeFromTokens(String[] tokens) {
 		try {
+			// Extract the shape type, height, and size from the tokens
 			String shapeType = tokens[0];
 			double height = Double.parseDouble(tokens[1]);
 			double size = Double.parseDouble(tokens[2]);
 
+			// Create the appropriate shape based on the shape type
 			switch (shapeType) {
 			case "Cylinder":
 				return new Cylinder(height, size);
