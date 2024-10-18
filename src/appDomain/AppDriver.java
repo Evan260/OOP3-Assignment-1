@@ -173,4 +173,80 @@ public class AppDriver {
 		shapes[i] = shapes[j];
 		shapes[j] = temp;
 	}
+	//sorts for height
+    public static void bubbleSort(Comparable[] shapes) {
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < shapes.length - 1; i++) {
+                if (shapes[i].compareTo(shapes[i + 1] )> 0) {
+                    Comparable temp = shapes[i];
+                    shapes[i] = shapes[i + 1];
+                    shapes[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+    }
+
+    public static void selectionSort(Comparable[] shapes) {
+        int n = shapes.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (shapes[i].compareTo(shapes[j]) < 0) {
+                    minIdx = j;
+                }
+            }
+            Comparable temp = shapes[minIdx];
+            shapes[minIdx] = shapes[i];
+            shapes[i] = temp;
+        }
+    }
+
+    public static void insertionSort(Comparable[] shapes) {
+        int n = shapes.length;
+        for (int i = 1; i < n; ++i) {
+            Comparable key = shapes[i];
+            int j = i - 1;
+
+            while (j >= 0 && shapes[j].compareTo(key) > 0) {
+                shapes[j + 1] = shapes[j];
+                j = j - 1;
+            }
+            shapes[j + 1] = key;
+        }
+    }
+
+    public static void quickSort(Comparable[] shapes) {
+        quickSortHelper(shapes, 0, shapes.length - 1);
+    }
+
+    private static void quickSortHelper(Comparable[] shapes, int low, int high) {
+        if (low < high) {
+            int pi = partition(shapes, low, high);
+            quickSortHelper(shapes, low, pi - 1);
+            quickSortHelper(shapes, pi + 1, high);
+        }
+    }
+
+    private static int partition(Comparable[] shapes, int low, int high) {
+        Comparable pivot = shapes[high];
+        int i = (low - 1);
+
+        for (int j = low; j < high; j++) {
+            if (shapes[j].compareTo(pivot) <= 0) {
+                i++;
+                swap(shapes, i, j);
+            }
+        }
+        swap(shapes, i + 1, high);
+        return i + 1;
+    }
+
+    private static void swap(Comparable[] shapes, int i, int j) {
+        Comparable temp = shapes[i];
+        shapes[i] = shapes[j];
+        shapes[j] = temp;
+    }
 }
