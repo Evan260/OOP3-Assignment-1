@@ -1,4 +1,3 @@
-
 # Shape Sorting Application
 
 This Java application reads shape data from a file and sorts the shapes based on various criteria such as volume, base area, or height using different sorting algorithms.
@@ -42,19 +41,19 @@ This Java application reads shape data from a file and sorts the shapes based on
 
 ## Example Usage:
 ### Example 1:
-To sort by **base area** using **Quick Sort** with a file `shapes1.txt` in the `res` folder:
+To sort by **base area** using **Quick Sort** with the file `shapes1.txt` in the `res` folder:
 ```bash
 java -jar Sort.jar -ta -sQ -f"res\shapes1.txt"
 ```
 
 ### Example 2:
-To sort by **volume** using **Selection Sort** with a file `shapes2.txt` in the `resources` folder:
+To sort by **volume** using **Selection Sort** with the file `shapes2.txt` in the `res` folder:
 ```bash
 java -jar Sort.jar -tv -sS -f"res\shapes2.txt"
 ```
 
 ### Example 3:
-To sort by **height** using **Bubble Sort** with a file `shapes3.txt` in the `data` folder:
+To sort by **height** using **Bubble Sort** with the file `shapes3.txt` in the `res` folder:
 ```bash
 java -jar Sort.jar -th -sB -f"res\shapes3.txt"
 ```
