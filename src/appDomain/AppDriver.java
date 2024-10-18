@@ -52,12 +52,6 @@ public class AppDriver {
             long timeElapsed4 = Duration.between(finish3, finish4).toMillis();
             System.out.println("Time taken to sort using Bubble Sort: " + timeElapsed4 + "ms");
 
-            // // Display sorted shapes by volume
-            // System.out.println("\nShapes sorted by volume using Bubble Sort:");
-            // for (Shape shape : shapesArray) {
-            //     System.out.println(shape.getClass().getSimpleName() + " Volume: " + shape.calcVolume());
-            // }
-
             // Reset the array to unsorted state
             shapesArray = allShapes.toArray(new Shape[0]);
 
@@ -176,18 +170,22 @@ public class AppDriver {
         return i + 1;
     }
 
-    	public static void Display(Shape[] shape) {
-		//first
-		System.out.println("First Element is: " + shape[0].getClass().getSimpleName() + " Volume");	
-		//every 1000th
-		for(int i = 0; i < shape.length; i+=1000) {
-			System.out.println(i + "th element is: " + shape[i].getClass().getSimpleName() + " Volume");	
-		}
-		//second last
-		System.out.println("Second last element is: " + shape[shape.length-2].getClass().getSimpleName() + " Volume");
-		//last
-		System.out.println("Second last element is: " + shape[shape.length-1].getClass().getSimpleName() + " Volume");
-
-		
-	}
+	    	public static void Display(Shape[] shapes) {
+	    	    // First element
+	    	    System.out.println("First Element is: " + shapes[0].getClass().getSimpleName() + " Volume: " + shapes[0].calcVolume());
+	    	    
+	    	    // Every 1000th element
+	    	    for (int i = 1000; i < shapes.length; i += 1000) {
+	    	        System.out.println(i + "th element is: " + shapes[i].getClass().getSimpleName() + " Volume: " + shapes[i].calcVolume());
+	    	    }
+	    	    
+	    	    // Second last element
+	    	    if (shapes.length > 1) {
+	    	        System.out.println("Second last element is: " + shapes[shapes.length - 2].getClass().getSimpleName() + " Volume: " + shapes[shapes.length - 2].calcVolume());
+	    	    }
+	    	    
+	    	    // Last element
+	    	    System.out.println("Last element is: " + shapes[shapes.length - 1].getClass().getSimpleName() + " Volume: " + shapes[shapes.length - 1].calcVolume());
+	    		
+	    	}
 }
