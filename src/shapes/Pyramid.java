@@ -5,7 +5,7 @@ package shapes;
  * @author Team Riju
  * @version 1.2
  * 
- * Class Definition: This Pyrimid extends Shape, taking in Side and Height. 
+ * Class Definition: This class extends Shape, taking in Side and Height. 
  * It overrides calcVolume and calcBaseArea to provide specific implementations 
  * for a Pyrimid's volume and base area calculations.
  */
