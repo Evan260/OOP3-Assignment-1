@@ -46,7 +46,7 @@ This Java application reads shape data from a file and sorts the shapes based on
 - **Quick Sort**: `java -jar Sort.jar -th -sq -f"res\shapes1.txt"`
 - **Insertion Sort**: `java -jar Sort.jar -th -sm -f"res\shapes1.txt"`
 - **Quick Sort**: `java -jar Sort.jar -th -sh -f"res\shapes1.txt"`
-- 
+
 ## Example Usage:
 ### Example 1:
 To sort by **base area** using **Quick Sort** with the file `shapes1.txt` in the `res` folder:
