@@ -5,7 +5,7 @@ package shapes;
  * @author Team Riju
  * @version 1.2
  * 
- * Class Definition: This OctagonalPrism extends Shape, taking in side and height. 
+ * Class Definition: This class extends Shape, taking in side and height. 
  * It overrides calcVolume and calcBaseArea to provide specific implementations 
  * for a OctagonalPrism's volume and base area calculations.
  */
