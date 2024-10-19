@@ -18,6 +18,8 @@ This Java application reads shape data from a file and sorts the shapes based on
    - `S`: Use **Selection Sort** (`-sS`)  
    - `I`: Use **Insertion Sort** (`-sI`)  
    - `Q`: Use **Quick Sort** (`-sQ`)
+   - `Q`: Use **Merge Sort** (`-sM`)
+   - `Q`: Use **Heap Sort** (`-sH`)
 
 ## List of Possible Commands:
 
