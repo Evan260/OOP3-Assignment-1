@@ -31,7 +31,7 @@ public class PentagonalPrism extends Shape {
 	// Methods
 	@Override
 	public double calcBaseArea() {
-		 return (5 * Math.pow(side, 2) * Math.tan(Math.toRadians(54))) / 4;
+		 return (5.0 * Math.pow(side, 2.0) * Math.tan(Math.toRadians(54.0))) / 4.0;
 	}
 
 	@Override

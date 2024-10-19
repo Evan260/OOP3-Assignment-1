@@ -36,6 +36,6 @@ public class SquarePrism extends Shape {
 
 	@Override
 	public double calcBaseArea() {
-		return Math.pow(side, 2);
+		return Math.pow(side, 2.0);
 	}
 }

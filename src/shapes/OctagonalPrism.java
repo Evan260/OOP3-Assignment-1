@@ -36,6 +36,6 @@ public class OctagonalPrism extends Shape {
 
 	@Override
 	public double calcBaseArea() {
-		return 2 * (1 + Math.sqrt(2)) * Math.pow(side, 2);
+		return 2.0 * (1.0 + Math.sqrt(2.0)) * Math.pow(side, 2.0);
 	}
 }

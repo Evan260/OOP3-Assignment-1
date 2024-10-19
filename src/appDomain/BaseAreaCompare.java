@@ -6,6 +6,7 @@ import java.util.Comparator;
 public class BaseAreaCompare implements Comparator<Shape> {
     @Override
     public int compare(Shape s1, Shape s2) {
-        return Double.compare(s1.calcBaseArea(), s2.calcBaseArea());
+    	 // Descending order, so the larger volume comes first
+        return Double.compare(s2.calcBaseArea(), s1.calcBaseArea());
     }
 }

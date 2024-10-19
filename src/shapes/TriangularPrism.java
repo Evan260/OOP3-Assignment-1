@@ -36,6 +36,6 @@ public class TriangularPrism extends Shape {
 
 	@Override
 	public double calcBaseArea() {
-		return (Math.pow(side, 2) * Math.sqrt(3)) / 4;
+		return (Math.pow(side, 2.0) * Math.sqrt(3.0)) / 4.0;
 	}
 }

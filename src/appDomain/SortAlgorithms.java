@@ -140,10 +140,7 @@ public class SortAlgorithms {
         }
 
         for (int i = n - 1; i > 0; i--) {
-            Shape temp = array[i];
-            array[i] = array[0];
-            array[0] = temp;
-
+        	swap(array, i, 0);
             heapify(array, i, 0, comparator);
         }
     }
@@ -163,9 +160,7 @@ public class SortAlgorithms {
         }
 
         if (largest != i) {
-            Shape swap = array[i];
-            array[i] = array[largest];
-            array[largest] = swap;
+        	swap(array, i, 0);
 			heapify(array, n, largest, comparator);
         }
     }

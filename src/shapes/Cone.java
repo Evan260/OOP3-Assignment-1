@@ -31,11 +31,11 @@ public class Cone extends Shape {
 	// Methods
 	@Override
 	public double calcVolume() {
-		return (1.0 / 3) * calcBaseArea() * height;
+		return (1.0 / 3.0) * calcBaseArea() * height;
 	}
 
 	@Override
 	public double calcBaseArea() {
-		return Math.PI * Math.pow(radius, 2);
+		return Math.PI * Math.pow(radius, 2.0);
 	}
 }
