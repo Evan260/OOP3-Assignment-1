@@ -56,9 +56,9 @@ public class ShapeFileReader {
 			// Create the appropriate shape based on the shape type
 			switch (shapeType) {
 			case "Cylinder":
-				return new Cylinder(height, radius);
+				return new Cylinder(height, size);
 			case "Cone":
-				return new Cone(height, radius);
+				return new Cone(height, size);
 			case "Pyramid":
 				return new Pyramid(height, size);
 			case "SquarePrism":
