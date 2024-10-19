@@ -167,5 +167,6 @@ public class SortAlgorithms {
             array[i] = array[largest];
             array[largest] = swap;
 			heapify(array, n, largest, comparator);
+        }
     }
 }
