@@ -131,4 +131,42 @@ public class SortAlgorithms {
 		shapes[i] = shapes[j];
 		shapes[j] = temp;
 	}
+	
+	    public static void heapSort(int[] array, Comparator<Shape comparator)  {
+        int n = array.length;
+
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(array, n, i, comparator);
+        }
+
+        for (int i = n - 1; i > 0; i--) {
+            int temp = array[i];
+            array[i] = array[0];
+            array[0] = temp;
+
+            heapify(array, i, 0, comparator);
+        }
+    }
+
+	public static void heapify(int[] array, int n, int i, Comparator<Shape> comparator) {
+
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        if (left < n && comparator.compare(array[left], array[largest]) > 0) {
+            largest = left;
+        }
+
+        if (right < n && comparator.compare(array[right], array[largest]) > 0) {
+            largest = right;
+        }
+
+        if (largest != i) {
+            Shape swap = array[i];
+            array[i] = array[largest];
+            array[largest] = swap;
+			heapify(array, n, largest, comparator);
+    }
+}
 }

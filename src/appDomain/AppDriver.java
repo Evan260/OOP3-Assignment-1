@@ -91,6 +91,10 @@ public class AppDriver {
 	            SortAlgorithms.mergeSort(shapes, comparator);
 	            sortName = "Merge";
 	            break;
+	        case "h":
+	            SortAlgorithms.heapSort(shapes, comparator);
+	            sortName = "Heap";
+	            break;
 	        default:
 	            System.out.println("Error: unknown sort type. Failed to sort shapes.");
 	            return;
