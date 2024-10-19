@@ -4,7 +4,6 @@ import shapes.*;
 import java.util.Comparator;
 
 public class SortAlgorithms {
-// Sorting algorithms with combined logic for Comparator and Comparable
 	public static void bubbleSort(Shape[] shapes, Comparator<Shape> comparator) {
 		boolean swapped;
 		do {
@@ -65,6 +64,42 @@ public class SortAlgorithms {
 		}
 		swap(shapes, i + 1, high);
 		return i + 1;
+	}
+	
+	public static void mergeSort(Shape[] shapes, Comparator<Shape> comparator) {
+	    if (shapes.length < 2) {
+	        return;
+	    }
+	    int mid = shapes.length / 2;
+	    Shape[] left = new Shape[mid];
+	    Shape[] right = new Shape[shapes.length - mid];
+
+	    System.arraycopy(shapes, 0, left, 0, mid);
+	    System.arraycopy(shapes, mid, right, 0, shapes.length - mid);
+
+	    mergeSort(left, comparator);
+	    mergeSort(right, comparator);
+	    merge(shapes, left, right, comparator);
+	}
+
+	private static void merge(Shape[] shapes, Shape[] left, Shape[] right, Comparator<Shape> comparator) {
+	    int i = 0, j = 0, k = 0;
+
+	    while (i < left.length && j < right.length) {
+	        if (compare(left[i], right[j], comparator) <= 0) {
+	            shapes[k++] = left[i++];
+	        } else {
+	            shapes[k++] = right[j++];
+	        }
+	    }
+
+	    while (i < left.length) {
+	        shapes[k++] = left[i++];
+	    }
+
+	    while (j < right.length) {
+	        shapes[k++] = right[j++];
+	    }
 	}
 
 	// Helper to compare shapes using Comparator or compareTo

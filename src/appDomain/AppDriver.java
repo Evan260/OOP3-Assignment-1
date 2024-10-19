@@ -14,8 +14,8 @@ public class AppDriver {
 
 		// Process command-line arguments
 		String filePath = getArgValue(args, "-f");
-		String sortType = getArgValue(args, "-t");
-		String sortMethod = getArgValue(args, "-s");
+		String sortType = getArgValue(args, "-t").toLowerCase();
+		String sortMethod = getArgValue(args, "-s").toLowerCase();
 
 		if (filePath == null || sortType == null || sortMethod == null) {
 			System.out.println("Invalid arguments. Usage: -f <filepath> -t <type> -s <sort>");
@@ -66,24 +66,37 @@ public class AppDriver {
 		}
 	}
 
-	// Sort shapes based on the method and comparator or compareTo()
 	private static void sortShapes(Shape[] shapes, Comparator<Shape> comparator, String method) {
-		Instant start = Instant.now();
-		switch (method) {
-		case "b":
-			SortAlgorithms.bubbleSort(shapes, comparator);
-			break;
-		case "s":
-			SortAlgorithms.selectionSort(shapes, comparator);
-			break;
-		case "i":
-			SortAlgorithms.insertionSort(shapes, comparator);
-			break;
-		case "q":
-			SortAlgorithms.quickSort(shapes, comparator);
-			break;
-		}
-		logTime(method + " sort", start);
+	    Instant start = Instant.now();
+	    String sortName = "";
+	    
+	    switch (method) {
+	        case "b":
+	            SortAlgorithms.bubbleSort(shapes, comparator);
+	            sortName = "Bubble";
+	            break;
+	        case "s":
+	            SortAlgorithms.selectionSort(shapes, comparator);
+	            sortName = "Selection";
+	            break;
+	        case "i":
+	            SortAlgorithms.insertionSort(shapes, comparator);
+	            sortName = "Insertion";
+	            break;
+	        case "q":
+	            SortAlgorithms.quickSort(shapes, comparator);
+	            sortName = "Quick";
+	            break;
+	        case "m":
+	            SortAlgorithms.mergeSort(shapes, comparator);
+	            sortName = "Merge";
+	            break;
+	        default:
+	            System.out.println("Error: unknown sort type. Failed to sort shapes.");
+	            return;
+	    }
+
+	    logTime(sortName + " sort", start);
 	}
 
 	// Log the time taken for operations
