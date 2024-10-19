@@ -4,22 +4,23 @@ import shapes.*;
 import java.util.Comparator;
 
 public class SortAlgorithms {
-	public static void bubbleSort(Shape[] shapes, Comparator<Shape> comparator) {
-		boolean swapped;
-		do {
-			swapped = false;
-			// Iterate through the array and compare adjacent shapes
-			for (int i = 0; i < shapes.length - 1; i++) {
-				// Swap shapes if they are in the wrong order
-				if (compare(shapes[i], shapes[i + 1], comparator) > 0) {
-					swap(shapes, i, i + 1);
-					swapped = true;
-				}
-			}
-		} while (swapped); // Continue until no swaps occur
+	public static <T extends Comparable<T>> void bubbleSort(T[] shapes, Comparator<? super T> comparator) {
+	    boolean swapped;
+	    do {
+	        swapped = false;
+	        // Iterate through the array and compare adjacent shapes
+	        for (int i = 0; i < shapes.length - 1; i++) {
+	            // Swap shapes if they are in the wrong order
+	            if (comparator.compare(shapes[i], shapes[i + 1]) > 0) {
+	                swap(shapes, i, i + 1);
+	                swapped = true;
+	            }
+	        }
+	    } while (swapped); // Continue until no swaps occur
 	}
 
-	public static void selectionSort(Shape[] shapes, Comparator<Shape> comparator) {
+
+	public static <T extends Comparable<T>> void selectionSort(T[] shapes, Comparator<? super T> comparator) {
 		for (int i = 0; i < shapes.length - 1; i++) {
 			int minIdx = i;
 			// Find the minimum element in the unsorted part of the array
@@ -33,9 +34,9 @@ public class SortAlgorithms {
 		}
 	}
 
-	public static void insertionSort(Shape[] shapes, Comparator<Shape> comparator) {
+	public static  <T extends Comparable<T>> void insertionSort(T[] shapes, Comparator<? super T> comparator) {
 		for (int i = 1; i < shapes.length; i++) {
-			Shape key = shapes[i];
+			T key = shapes[i];
 			int j = i - 1;
 			// Move elements of shapes[0...i-1], that are greater than key, to one position
 			// ahead
@@ -52,7 +53,7 @@ public class SortAlgorithms {
 		quickSortHelper(shapes, 0, shapes.length - 1, comparator);
 	}
 
-	private static void quickSortHelper(Shape[] shapes, int low, int high, Comparator<Shape> comparator) {
+	private static  <T extends Comparable<T>> void quickSortHelper(T[] shapes, int low, int high, Comparator<? super T> comparator) {
 		if (low < high) {
 			// Find the partition index
 			int pi = partition(shapes, low, high, comparator);
@@ -62,8 +63,8 @@ public class SortAlgorithms {
 		}
 	}
 
-	private static int partition(Shape[] shapes, int low, int high, Comparator<Shape> comparator) {
-		Shape pivot = shapes[high]; // Choose the last element as the pivot
+	private static  <T extends Comparable<T>> int partition(T[] shapes, int low, int high, Comparator<? super T> comparator) {
+		T pivot = shapes[high]; // Choose the last element as the pivot
 		int i = low - 1;// Index of the smaller element
 		for (int j = low; j < high; j++) {
 			// If the current element is smaller or equal to the pivot, swap it
@@ -77,13 +78,13 @@ public class SortAlgorithms {
 		return i + 1;
 	}
 
-	public static void mergeSort(Shape[] shapes, Comparator<Shape> comparator) {
+	public static  <T extends Comparable<T>> void mergeSort(T[] shapes, Comparator<? super T> comparator) {
 		if (shapes.length < 2) {
 			return;
 		}
 		int mid = shapes.length / 2; // Find the middle index
-		Shape[] left = new Shape[mid];
-		Shape[] right = new Shape[shapes.length - mid];
+		T[] left = (T[]) new Shape[mid];
+		T[] right = (T[]) new Shape[shapes.length - mid];
 
 		// Divide the array into two halves
 		System.arraycopy(shapes, 0, left, 0, mid);
@@ -97,7 +98,7 @@ public class SortAlgorithms {
 		merge(shapes, left, right, comparator);
 	}
 
-	private static void merge(Shape[] shapes, Shape[] left, Shape[] right, Comparator<Shape> comparator) {
+	private static  <T extends Comparable<T>> void merge(T[] shapes, T[] left, T[] right,  Comparator<? super T> comparator) {
 		int i = 0, j = 0, k = 0;
 
 		// Merge the elements in sorted order
@@ -121,18 +122,23 @@ public class SortAlgorithms {
 	}
 
 	// Helper to compare shapes using Comparator or compareTo
-	private static int compare(Shape a, Shape b, Comparator<Shape> comparator) {
-		return (comparator == null) ? a.compareTo(b) : comparator.compare(a, b);
+	private static <T extends Comparable<T>> int compare(T a, T b, Comparator<? super T> comparator) {
+	    if (comparator == null) {
+	        // Assume T implements Comparable<T>
+	        return ((Comparable<T>) a).compareTo(b);
+	    } else {
+	        return comparator.compare(a, b);
+	    }
 	}
 
 	// Helper to swap two shapes
-	private static void swap(Shape[] shapes, int i, int j) {
-		Shape temp = shapes[i];
+	private static <T extends Comparable<T>> void swap(T[] shapes, int i, int j) {
+		T temp = shapes[i];
 		shapes[i] = shapes[j];
 		shapes[j] = temp;
 	}
 	
-	public static void heapSort(Shape[] array, Comparator<Shape> comparator)  {
+	public static <T extends Comparable<T>> void heapSort(T[] array, Comparator<? super T> comparator)  {
         int n = array.length;
 
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -145,7 +151,7 @@ public class SortAlgorithms {
         }
     }
 
-	public static void heapify(Shape[] array, int n, int i, Comparator<Shape> comparator) {
+	public static <T extends Comparable<T>> void heapify(T[] array, int n, int i, Comparator<? super T> comparator) {
 
         int largest = i;
         int left = 2 * i + 1;
