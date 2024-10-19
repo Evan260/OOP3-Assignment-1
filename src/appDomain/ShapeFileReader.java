@@ -6,7 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import shapes.*;
-
+/**
+ * AppDriver.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This is the method that will read the file that the user input from AppDriver
+ */
 public class ShapeFileReader {
 	// Method to load shapes from a file and return them as a List of Shape objects
 	public static List<Shape> loadShapesFromFile(String fileName) throws IOException {
@@ -49,9 +56,9 @@ public class ShapeFileReader {
 			// Create the appropriate shape based on the shape type
 			switch (shapeType) {
 			case "Cylinder":
-				return new Cylinder(height, size);
+				return new Cylinder(height, radius);
 			case "Cone":
-				return new Cone(height, size);
+				return new Cone(height, radius);
 			case "Pyramid":
 				return new Pyramid(height, size);
 			case "SquarePrism":

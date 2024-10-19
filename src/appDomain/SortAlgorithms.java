@@ -2,7 +2,15 @@ package appDomain;
 
 import shapes.*;
 import java.util.Comparator;
-
+/**
+ * AppDriver.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: this is where all the sort methods and their helpers are. Any sorting done in this code will be brought here
+ * the user selects which sort method they want in AppDriver 
+ */
 public class SortAlgorithms {
 	public static <T extends Comparable<T>> void bubbleSort(T[] shapes, Comparator<? super T> comparator) {
 	    boolean swapped;

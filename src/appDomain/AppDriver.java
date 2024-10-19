@@ -6,7 +6,16 @@ import java.util.List;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
-
+/**
+ * AppDriver.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This is the main method of all the code. everything is brought here. it first gets all the arguements the user
+ * put in using java java -jar Sort.jar -tV -sS -f"res\shapes1.txt" and sorts them out for what the file wants(-t, -s -f). once the
+ *  main knows what the user wants it will read the entire file that the user specified, sort it and display certain parts of the file
+ */
 public class AppDriver {
 
 	public static void main(String[] args) {
