@@ -1,5 +1,14 @@
 package shapes;
-
+/**
+ * SquarePrism.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This SquarePrism extends Shape, taking in Side and Height. 
+ * It overrides calcVolume and calcBaseArea to provide specific implementations 
+ * for a SquarePrism's volume and base area calculations.
+ */
 public class SquarePrism extends Shape {
 	// Properties
 	private double side;

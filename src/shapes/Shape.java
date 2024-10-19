@@ -1,5 +1,15 @@
 package shapes;
-
+/**
+ * Shape.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: Represents an abstract geometric shape with a height.
+ * This class provides the foundation for specific shape types,
+ * allowing them to calculate their volume and base area.
+ * It also implements Comparable to allow sorting shapes by height
+ */
 public abstract class Shape implements Comparable<Shape> {
 	// Properties
 	protected double height;

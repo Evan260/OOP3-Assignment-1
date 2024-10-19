@@ -1,5 +1,14 @@
 package shapes;
-
+/**
+ * PentagonalPrism.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This PentagonalPrism extends Shape, taking in Side and Height. 
+ * It overrides calcVolume and calcBaseArea to provide specific implementations 
+ * for a PentagonalPrism's volume and base area calculations.
+ */
 public class PentagonalPrism extends Shape {
 	// Properties
 	private double side;

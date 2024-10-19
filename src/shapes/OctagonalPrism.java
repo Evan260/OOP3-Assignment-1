@@ -1,5 +1,14 @@
 package shapes;
-
+/**
+ * OctagonalPrism.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This OctagonalPrism extends Shape, taking in side and height. 
+ * It overrides calcVolume and calcBaseArea to provide specific implementations 
+ * for a OctagonalPrism's volume and base area calculations.
+ */
 public class OctagonalPrism extends Shape {
 	// Properties
 	private double side;

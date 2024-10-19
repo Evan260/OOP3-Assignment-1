@@ -1,5 +1,14 @@
 package shapes;
-
+/**
+ * Pyrimid.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This Pyrimid extends Shape, taking in Side and Height. 
+ * It overrides calcVolume and calcBaseArea to provide specific implementations 
+ * for a Pyrimid's volume and base area calculations.
+ */
 public class Pyramid extends Shape {
 	// Properties
 	private double side;

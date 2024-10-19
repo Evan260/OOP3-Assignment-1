@@ -1,5 +1,14 @@
 package shapes;
-
+/**
+ * Cylinder.java
+ *
+ * @author Team Riju
+ * @version 1.2
+ * 
+ * Class Definition: This Cylinder extends Shape, taking in height and radius. 
+ * It overrides calcVolume and calcBaseArea to provide specific implementations 
+ * for a cylinder's volume and base area calculations.
+ */
 public class Cylinder extends Shape {
 	// Properties
 	private double radius;
