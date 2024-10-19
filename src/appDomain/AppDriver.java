@@ -30,21 +30,11 @@ public class AppDriver {
 
 			Shape[] shapesArray = allShapes.toArray(new Shape[0]);
 
-			for (int i = 0; i < shapesArray.length; i += 1) {
-				System.out.println(
-						shapesArray[i].getClass().getSimpleName() + " Volume: " + shapesArray[i].calcVolume());
-			}
-			System.out.println("");
-			System.out.println("");
-			
 			// null means use compareTo()
 			Comparator<Shape> comparator = getComparator(sortType);
 			sortShapes(shapesArray, comparator, sortMethod);
-
-			for (int i = 0; i < shapesArray.length; i += 1) {
-				System.out.println(
-						shapesArray[i].getClass().getSimpleName() + " Volume: " + shapesArray[i].calcVolume());
-			}
+		
+			Display(shapesArray);
 			
 		} catch (IOException e) {
 			System.err.println("Error reading shapes file: " + e.getMessage());
